@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1068515217685",
+    "firebase_url": "https://tik-tok-a4f5e.firebaseio.com",
+    "project_id": "tik-tok-a4f5e",
+    "storage_bucket": "tik-tok-a4f5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068515217685:android:0816f404f87eb824c4991c",
+        "android_client_info": {
+          "package_name": "com.example.tik_tok"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068515217685-2uemqmoe847368ub96a4a4ofth12j980.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOTLnw3FvMcBMNlhMnaK6lIM9tqqnrxQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068515217685-2uemqmoe847368ub96a4a4ofth12j980.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
