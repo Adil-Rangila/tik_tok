@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tik_tok/signup.dart';
 import 'package:tik_tok/variables.dart';
+import 'package:get/get.dart';
 
 import 'home.dart';
 
@@ -100,9 +102,12 @@ class _LoginState extends State<Login> {
                   style: myStyle(20),
                 ),
                 SizedBox(width: 10),
-                Text(
-                  'Register',
-                  style: myStyle(20, Colors.purple),
+                InkWell(
+                  onTap: () => Get.to(SignUp()),
+                  child: Text(
+                    'Register',
+                    style: myStyle(20, Colors.purple),
+                  ),
                 )
               ],
             )
