@@ -23,6 +23,7 @@ class SignUp extends StatelessWidget {
             'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
       });
     });
+    Get.back();
   }
 
   @override
