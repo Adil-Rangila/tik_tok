@@ -1,12 +1,20 @@
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tik_tok/policy.dart';
 import 'package:tik_tok/variables.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   final emailController = TextEditingController();
+
   final userNameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   registerUser() {
@@ -23,7 +31,7 @@ class SignUp extends StatelessWidget {
             'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'
       });
     });
-    Get.back();
+    Navigator.pop(context);
   }
 
   @override
@@ -124,7 +132,12 @@ class SignUp extends StatelessWidget {
                 ),
                 SizedBox(width: 10),
                 InkWell(
-                  onTap: () => Get.to(Policy()),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Policy()),
+                    );
+                  },
                   child: Text(
                     'Terms and Policy',
                     style: myStyle(20, Colors.purple),

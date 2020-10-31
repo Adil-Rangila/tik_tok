@@ -1,8 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tik_tok/signup.dart';
 import 'package:tik_tok/variables.dart';
-import 'package:get/get.dart';
-
 import 'home.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -12,6 +11,24 @@ class NavigationPage extends StatefulWidget {
 
 class _NavigationPageState extends State<NavigationPage> {
   bool isSigned = false;
+
+  @override
+  void initState() {
+    super.initState();
+    //FirebaseAuth.instance.signOut();
+
+    FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user != null) {
+        setState(() {
+          isSigned = true;
+        });
+      } else {
+        setState(() {
+          isSigned = false;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +44,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +69,7 @@ class _LoginState extends State<Login> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   labelText: 'Email',
                   labelStyle: myStyle(20),
@@ -65,6 +86,7 @@ class _LoginState extends State<Login> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: TextField(
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
@@ -79,17 +101,30 @@ class _LoginState extends State<Login> {
               ),
             ),
             SizedBox(height: 10),
-            Container(
-              width: MediaQuery.of(context).size.width / 2,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Text(
-                  'Login',
-                  style: myStyle(20, Colors.white),
+            InkWell(
+              onTap: () async {
+                try {
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text);
+                } catch (e) {
+                  final snackbar =
+                      SnackBar(content: Text('Recheck email and password'));
+                  Scaffold.of(context).showSnackBar(snackbar);
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width / 2,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: myStyle(20, Colors.white),
+                  ),
                 ),
               ),
             ),
@@ -103,7 +138,12 @@ class _LoginState extends State<Login> {
                 ),
                 SizedBox(width: 10),
                 InkWell(
-                  onTap: () => Get.to(SignUp()),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUp()),
+                    );
+                  },
                   child: Text(
                     'Register',
                     style: myStyle(20, Colors.purple),
