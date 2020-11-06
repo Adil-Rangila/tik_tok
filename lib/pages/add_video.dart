@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tik_tok/confirm_video.dart';
 import 'package:tik_tok/variables.dart';
 
 class AddVideo extends StatefulWidget {
@@ -40,8 +43,13 @@ class _AddVideoState extends State<AddVideo> {
   }
 
   pickVideo(ImageSource src) async {
-    //Navigator.pop(context);
     final video = await ImagePicker().getVideo(source: src);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ConfirmVideo(File(video.path), video.path, src),
+      ),
+    );
   }
 
   @override
