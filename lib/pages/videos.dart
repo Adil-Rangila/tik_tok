@@ -29,6 +29,23 @@ class _VideosState extends State<Videos> {
                 ),
               ),
             ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: (60 / 2) - (20 / 2),
+            child: Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(
+                color: Colors.pink,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 20,
+              ),
+            ),
           )
         ],
       ),
