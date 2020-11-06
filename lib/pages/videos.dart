@@ -102,7 +102,7 @@ class _VideosState extends State<Videos> {
             children: [
               //top section
               Container(
-                color: Colors.red,
+                //    color: Colors.red,
                 height: 100,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -122,71 +122,78 @@ class _VideosState extends State<Videos> {
               ),
               //middle Section
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.only(left: 20, bottom: 10),
-                  color: Colors.orange,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Adil',
-                        style: myStyle(20, Colors.white),
-                      ),
-                      Text(
-                        'Cool Video keep up the good work',
-                        style: myStyle(15, Colors.white),
-                      ),
-                      Row(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 20, bottom: 10),
+                      //  color: Colors.orange,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.music_note_rounded,
-                            color: Colors.white,
+                          Text(
+                            'Adil',
+                            style: myStyle(20, Colors.white),
                           ),
                           Text(
-                            'Enriq Iqlius',
-                            style: myStyle(
-                              15,
-                              Colors.white,
-                            ),
+                            'Cool Video keep up the good work',
+                            style: myStyle(15, Colors.white),
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.music_note_rounded,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                'Enriq Iqlius',
+                                style: myStyle(
+                                  15,
+                                  Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              //right section
-              Container(
-                color: Colors.blue,
-                width: 100,
-                margin: EdgeInsets.only(top: 150),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    buildProfile(),
-                    Column(
-                      children: [
-                        Icon(Icons.favorite, size: 55, color: Colors.white),
-                        SizedBox(height: 7),
-                        Text('10', style: myStyle(20, Colors.white)),
-                      ],
                     ),
-                    Column(
-                      children: [
-                        Icon(Icons.comment, size: 55, color: Colors.white),
-                        SizedBox(height: 7),
-                        Text('69', style: myStyle(20, Colors.white)),
-                      ],
+                    //right section
+                    Container(
+                      //    color: Colors.blue,
+                      width: 100,
+                      margin: EdgeInsets.only(top: 150),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildProfile(),
+                          Column(
+                            children: [
+                              Icon(Icons.favorite,
+                                  size: 55, color: Colors.white),
+                              SizedBox(height: 7),
+                              Text('10', style: myStyle(20, Colors.white)),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(Icons.comment,
+                                  size: 55, color: Colors.white),
+                              SizedBox(height: 7),
+                              Text('69', style: myStyle(20, Colors.white)),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Icon(Icons.replay, size: 55, color: Colors.white),
+                              SizedBox(height: 7),
+                              Text('5', style: myStyle(20, Colors.white)),
+                            ],
+                          ),
+                          CircleAnimation(buildMusicAlbum()),
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        Icon(Icons.replay, size: 55, color: Colors.white),
-                        SizedBox(height: 7),
-                        Text('5', style: myStyle(20, Colors.white)),
-                      ],
-                    ),
-                    CircleAnimation(buildMusicAlbum()),
                   ],
                 ),
               ),
