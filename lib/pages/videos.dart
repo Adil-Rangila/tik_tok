@@ -131,6 +131,27 @@ class _VideosState extends State<Videos> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     buildProfile(),
+                    Column(
+                      children: [
+                        Icon(Icons.favorite, size: 55, color: Colors.white),
+                        SizedBox(height: 7),
+                        Text('10', style: myStyle(20, Colors.white)),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.comment, size: 55, color: Colors.white),
+                        SizedBox(height: 7),
+                        Text('69', style: myStyle(20, Colors.white)),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Icon(Icons.replay, size: 55, color: Colors.white),
+                        SizedBox(height: 7),
+                        Text('5', style: myStyle(20, Colors.white)),
+                      ],
+                    ),
                   ],
                 ),
               ),
