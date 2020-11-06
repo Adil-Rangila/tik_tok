@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tik_tok/variables.dart';
+import 'package:tik_tok/widgets/circle_animation.dart';
 
 class Videos extends StatefulWidget {
   @override
@@ -44,6 +45,39 @@ class _VideosState extends State<Videos> {
                 Icons.add,
                 color: Colors.white,
                 size: 20,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  buildMusicAlbum() {
+    return Container(
+      width: 60,
+      height: 60,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(11),
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.grey[800],
+                  Colors.grey[700],
+                ],
+              ),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: Image(
+                image: NetworkImage(
+                    'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png'),
+                fit: BoxFit.cover,
               ),
             ),
           )
@@ -152,6 +186,7 @@ class _VideosState extends State<Videos> {
                         Text('5', style: myStyle(20, Colors.white)),
                       ],
                     ),
+                    CircleAnimation(buildMusicAlbum()),
                   ],
                 ),
               ),
