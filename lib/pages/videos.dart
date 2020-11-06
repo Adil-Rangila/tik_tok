@@ -13,9 +13,21 @@ class _VideosState extends State<Videos> {
       height: 60,
       child: Stack(
         children: [
-          Container(
-            child: ClipRRect(
-              child: Image.network(''),
+          Positioned(
+            left: (60 / 2) - (50 / 2),
+            child: Container(
+              width: 50,
+              height: 50,
+              padding: EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(25)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.network(
+                  'https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           )
         ],
@@ -93,11 +105,13 @@ class _VideosState extends State<Videos> {
                   ),
                 ),
               ),
+              //right section
               Container(
                 color: Colors.blue,
                 width: 100,
-                //  height: 100,
+                margin: EdgeInsets.only(top: 150),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     buildProfile(),
                   ],
