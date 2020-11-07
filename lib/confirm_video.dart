@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:tik_tok/variables.dart';
 import 'package:video_player/video_player.dart';
 
 class ConfirmVideo extends StatefulWidget {
@@ -39,7 +40,27 @@ class _ConfirmVideoState extends State<ConfirmVideo> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 1.5,
               child: VideoPlayer(controller),
-            )
+            ),
+            SizedBox(height: 20),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        labelText: 'Song Name',
+                        labelStyle: myStyle(20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
