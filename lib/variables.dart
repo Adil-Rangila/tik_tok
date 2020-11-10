@@ -11,3 +11,4 @@ myStyle(double size, [Color color, FontWeight fontWeight = FontWeight.w700]) {
 }
 
 final userCollection = FirebaseFirestore.instance.collection('users');
+final videoCollection = FirebaseFirestore.instance.collection('videos');
