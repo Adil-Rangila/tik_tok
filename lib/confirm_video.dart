@@ -19,7 +19,7 @@ class ConfirmVideo extends StatefulWidget {
 class _ConfirmVideoState extends State<ConfirmVideo> {
   VideoPlayerController controller;
   var musicController = TextEditingController();
-  var capstionController = TextEditingController();
+  var captionController = TextEditingController();
 
   @override
   void initState() {
@@ -43,6 +43,20 @@ class _ConfirmVideoState extends State<ConfirmVideo> {
   uploadVideo() async {
     var userId = FirebaseAuth.instance.currentUser.uid;
     var userDoc = await userCollection.doc(userId).get();
+    var videoDoc = await videoCollection.get();
+    int length = videoDoc.docs.length;
+
+    videoCollection.doc('video $length').set({
+      'username': userDoc.data()['username'],
+      'userid': userId,
+      'profilepic': userDoc.data()['profilepic'],
+      'id': 'video $length',
+      'likes': [],
+      'comment': 0,
+      'share': 0,
+      'songname': musicController.text,
+      'caption': captionController.text,
+    });
   }
 
   @override
@@ -80,11 +94,11 @@ class _ConfirmVideoState extends State<ConfirmVideo> {
                     width: MediaQuery.of(context).size.width / 2,
                     margin: EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
-                      controller: capstionController,
+                      controller: captionController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        labelText: 'Capstion',
+                        labelText: 'Caption',
                         labelStyle: myStyle(20),
                         prefixIcon: Icon(Icons.closed_caption),
                       ),
